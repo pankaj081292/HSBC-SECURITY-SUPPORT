@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSBC Log On</title>
+	<!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body, html {
             margin: 0;
@@ -55,7 +57,7 @@
             width: 100%;
             border-top: 2px solid #ccc;
             border-bottom: 2px solid #ccc;
-            margin-top: 10px;
+            /* margin-top: 10px; */
         }
 
         .warning-message a {
@@ -80,10 +82,10 @@
         .login-form {
             background: #fff;
             padding: 30px;
-            border-radius: 8px;
+            /* border-radius: 8px; */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             width: 340px;
-            text-align: center;
+            /* text-align: center; */
             margin-top: 20px;
         }
 
@@ -95,24 +97,26 @@
         }
 
         .login-form label {
-            font-size: 14px;
+            font-size: 12px;
             color: #555;
             display: block;
             margin-bottom: 5px;
         }
 
         .login-form input[type="text"] {
-            width: 100%;
+            width: 90%;
             padding: 12px;
             margin: 5px 0 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
+			border: solid 1px #85000a;
+			background-color: #f9f0f1;
         }
 
         .login-form .error-message {
-            color: #d9534f;
-            font-size: 13px;
+            color: #746d6d;
+            font-size: 10px;
             margin-bottom: 10px;
             text-align: left;
         }
@@ -128,9 +132,9 @@
         }
 
         .login-form a {
-            color: #DB0011;
+            color: #968d8d;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 10px;
         }
 
         .login-form a:hover {
@@ -199,18 +203,32 @@
         /* Footer Styling */
         .footer {
             width: 100%;
-            background-color: #333;
+            background-color: #504d4d;
             color: #fff;
             padding: 20px 0;
             text-align: center;
             margin-top: 20px;
+        }
+		.footerTwo {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: right;
+            /* margin-top: 20px; */
+        }
+		.footerTwo p {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 10px;
         }
 
         .footer a {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .footer a:hover {
@@ -242,11 +260,11 @@
 
     <!-- Warning Message -->
     <div class="warning-message">
-        <strong>WARNING -</strong> Investment Scams using Crypto-Currency are on the rise. 
-        <br> Criminals will foster a romance or a friendship while encouraging you to invest more and more of your funds to earn a higher rate of return.
-        <br> <a href="#">Read More</a>
-        <p>If an investment opportunity sounds too good to be true, it likely is. Be cautious of get-rich-quick schemes.<br>
-        Think twice before transferring money from your accounts to an unknown crypto investment.</p>
+        <center><u><font color="#DB0011">WARNING - Investment Scams using Crypto-Currency are on the rise</font></u></center><p></p>
+<p></p><center>Criminals will foster a romance or a friendship while encouraging you to invest more and more of your funds to earn a higher rate of return. They'll also create fake websites and financial statements, and tell you to lie to your bank and family.</center><p></p>
+<p></p><center>If an investment opportunity sounds too good to be true, it likely is. Be cautious of get rich quick schemes.</center><p></p>
+<p></p><center>Think twice before transferring money from your accounts to an unknown crypto investment.</center><p></p>
+
     </div>
 
     <!-- Main Scrollable Content -->
@@ -255,8 +273,9 @@
         <div class="login-form">
             <h2>Log on</h2>
             <label for="username">Enter your username</label>
-            <input type="text" id="username" placeholder="Username">
-            <div class="error-message">This is the username you chose when registering for Online Banking</div>
+			<div class="error-message">This is the username you chose when registering for Online Banking</div>
+            <input type="text" id="username" placeholder="">
+            
             <div class="remember-me">
                 <input type="checkbox" id="rememberMe">
                 <label for="rememberMe">Remember me</label>
@@ -281,7 +300,10 @@
 
     <!-- Footer Links -->
     <div class="footer">
-        <a href="#">Customer Service</a> |
+		<a href="#"><i class="fas fa-phone-alt"></i>Customer Service</a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i>Find a Wealth Center</a>
+        <a href="#"><i class="fas fa-comment-alt"></i>Customer Feedback</a>
+        <!-- <a href="#">Customer Service</a> |
         <a href="#">Find a Wealth Center</a> |
         <a href="#">Customer Feedback</a> |
         <a href="#">About HSBC</a> |
@@ -290,9 +312,16 @@
         <a href="#">Security</a> |
         <a href="#">Terms & Conditions</a> |
         <a href="#">Site Map</a> |
-        <a href="#">HSBC Accessibility</a> |
-        <a href="#">HSBC Group</a>
-        <div>&copy; HSBC Bank USA, N.A. 2024. All Rights Reserved. Member FDIC. Equal Housing Lender.</div>
+        <a href="#">HSBC Accessibility</a> | -->
+		</div>
+		<div div class="footerTwo">
+			<p>
+				©&nbsp;HSBC Bank USA, N.A. 2024. All Rights Reserved.<br>
+				Member FDIC.<br>
+				<img src="/ContentService/gsp/saas/Components/default/doc/ehl_logo_wht_13x10.png?SAGG=gsp_us" style="padding-bottom: 4px;" alt="">&nbsp;<a href="https://www.us.hsbc.com/home-loans/equal-housing-lender/">Equal Housing Lender</a>
+				</p>
+	</div>
     </div>
+	
 </body>
 </html>
