@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSBC Log On</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('./images/background.jpg') no-repeat center center fixed; /* Background image fixed */
+            background-size: cover;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+		/* Navbar Styling */
+        .navbar2 {
+            width: 100%;
+			height: 40px;
+            background-color: #f7f6f6;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Warning Message Styling */
+        .warning-message {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            color: #333;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 16px;
+            width: 100%;
+            border-top: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .warning-message a {
+            color: #c9302c; /* Red color for warning link */
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .warning-message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container for scrolling content */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        /* Login Form Styling */
+        .login-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 340px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .login-form label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-form input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .login-form .error-message {
+            color: #d9534f;
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .login-form .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .login-form .remember-me input {
+            margin-right: 8px;
+        }
+
+        .login-form a {
+            color: #DB0011;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-form a:hover {
+            text-decoration: underline;
+        }
+
+        .login-form .continue-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e4413e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Modal Background Blur Effect */
+        .modal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: none; /* Initially hidden */
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px); /* Background blur */
+        }
+
+        /* Modal Dialog Styling */
+        .modal {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal p {
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+
+        .modal strong {
+            color: #d9534f; /* Red color for warning */
+        }
+
+        .modal .close-button {
+            background-color: #e4413e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Footer Styling */
+        .footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // Function to display the modal
+        function showModal() {
+            document.getElementById("modalBackground").style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("modalBackground").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+       <!-- Navbar with Logo -->
+       <div class="navbar">
+        <!-- <img src="./images/hsbc-logo.png" alt="HSBC Logo">  Logo image path update karein -->
+        <span></span>
+    </div>
+	<div class="navbar2">
+        <img src="./images/COMPANEY-LOGO.png" alt="HSBC Logo"> <!-- Logo image path update karein -->
+        <span></span>
+    </div>
+
+    <!-- Warning Message -->
+    <div class="warning-message">
+        <strong>WARNING -</strong> Investment Scams using Crypto-Currency are on the rise. 
+        <br> Criminals will foster a romance or a friendship while encouraging you to invest more and more of your funds to earn a higher rate of return.
+        <br> <a href="#">Read More</a>
+        <p>If an investment opportunity sounds too good to be true, it likely is. Be cautious of get-rich-quick schemes.<br>
+        Think twice before transferring money from your accounts to an unknown crypto investment.</p>
+    </div>
+
+    <!-- Main Scrollable Content -->
+    <div class="content-container">
+        <!-- Login Form -->
+        <div class="login-form">
+            <h2>Log on</h2>
+            <label for="username">Enter your username</label>
+            <input type="text" id="username" placeholder="Username">
+            <div class="error-message">This is the username you chose when registering for Online Banking</div>
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+            <a href="#">Forgot username?</a>
+            <!-- Continue Button with showModal function -->
+            <button class="continue-button" onclick="showModal()">Continue</button>
+            <div style="margin-top: 15px;">
+                <a href="#">Not registered?</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Background and Message -->
+    <div id="modalBackground" class="modal-background">
+        <div class="modal">
+            <p><strong>This account has been locked.</strong></p>
+            <p>Please contact customer service at <br><strong>+1 800-900-051</strong></p>
+            <button class="close-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="footer">
+        <a href="#">Customer Service</a> |
+        <a href="#">Find a Wealth Center</a> |
+        <a href="#">Customer Feedback</a> |
+        <a href="#">About HSBC</a> |
+        <a href="#">Careers</a> |
+        <a href="#">Privacy</a> |
+        <a href="#">Security</a> |
+        <a href="#">Terms & Conditions</a> |
+        <a href="#">Site Map</a> |
+        <a href="#">HSBC Accessibility</a> |
+        <a href="#">HSBC Group</a>
+        <div>&copy; HSBC Bank USA, N.A. 2024. All Rights Reserved. Member FDIC. Equal Housing Lender.</div>
+    </div>
+</body>
+</html>
